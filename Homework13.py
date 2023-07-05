@@ -7,28 +7,14 @@ print("TASK 1 \n")
 
 def func(start, order):
 
-    num_1 = 0
-    num_2 = 1
-    num_3 = num_1 + num_2
+    num_1, num_2 = 0, 1
 
     while start < order:
 
-        if start == 0:
-            yield num_1
-            start += 1
-        elif start == 1:
-            yield num_2
-            start += 1
-        elif start == 2:
-            yield num_3
-            start += 1
-        else:
-            num_1 = num_2
-            num_2 = num_3
-            num_3 = num_1 + num_2
-            yield num_3
-            start += 1
-
+        yield num_1
+        num_1, num_2 = num_2, num_1 + num_2
+        start += 1
+        
 
 start = 0
 order = int(input("Enter the number of sequence: "))
